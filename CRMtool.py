@@ -13,7 +13,21 @@ style.configure("Treeview", background="#D3D3D3", foreground="black", rowheight=
 style.map("Treeview", background=[("selected", "#347083")])
 
 tree_frame = Frame(root)
-tree_frame.pack(pady=10)
+tree_frame.pack(pady=30)
+
+#  This will initialize the menu
+top_menu = Menu(root)
+root.config(menu=top_menu)
+
+#  This will add the stuff in the menu
+file_menu = Menu(top_menu,tearoff=False)
+top_menu.add_cascade(label="File",menu=file_menu)
+file_menu.add_command(label="Quit",command=root.destroy)
+
+# sub_menu = Menu(file_menu,tearoff=False)
+# file_menu.add_cascade(label="Sub_Menu",menu=sub_menu)
+# sub_menu.add_command(label="Quit",command=root.destroy)
+
 
 tree_scroll = Scrollbar(tree_frame)
 tree_scroll.pack(side=RIGHT,fill=Y)
@@ -54,8 +68,8 @@ data = [["Utkarsh", "Singh", 1, 1234, "SE","Mumbai","INDIA"],
         ["Karan", "Singh", 8, 5458, "SSE","Dubai","SA"],
         ["Jhon", "Brown", 9, 8759, "SSE","NY","USA"],
         ["Jhon", "White", 10, 7895, "Manager","CA","USA"],
-        ["Jim", "Brown", 9, 8759, "SSE","NY","USA"],
-        ["Jill", "White", 10, 7895, "Manager","CA","USA"]
+        ["Jim", "Brown", 11, 8759, "SSE","NY","USA"],
+        ["Jill", "White", 12, 7895, "Manager","CA","USA"]
         ]
 
 my_tree.tag_configure("oddrows", background="white")
@@ -73,14 +87,49 @@ for x in data:
                        tags=('evenrows',))
     count += 1
 
-btm_frame = Frame(root)
-btm_frame.pack(pady=1)
-label_frame = LabelFrame(btm_frame, text="Modify a Cell", bg="#D3D3D3")
-label_frame.pack(pady=10,ipadx=350,expand=Y)
-label_name = ttk.Label(label_frame,text="Name")
-label_name.pack(padx=10,side=LEFT)
-entry_name = ttk.Entry(label_frame,width=20)
-entry_name.pack(padx=10,pady=20,side=LEFT)
+label_frame = LabelFrame(root, text="Modify a Cell", bg="#D3D3D3")
+label_frame.pack(padx=20,expand="yes",fill="x")
 
+# Name
+label_name = ttk.Label(label_frame,text="Name")
+label_name.grid(row=0,column=0,padx=10)
+entry_name = ttk.Entry(label_frame,width=20)
+entry_name.grid(row=0,column=1,padx=10)
+
+# LastName
+label_lastname = ttk.Label(label_frame,text="Last Name")
+label_lastname.grid(row=0,column=2,padx=10)
+entry_lastname = ttk.Entry(label_frame,width=20)
+entry_lastname.grid(row=0,column=3,padx=10)
+
+# ID
+label_lastname = ttk.Label(label_frame,text="ID")
+label_lastname.grid(row=0,column=4,padx=10)
+entry_lastname = ttk.Entry(label_frame,width=20)
+entry_lastname.grid(row=0,column=5,pady=10)
+
+# Code
+label_code = ttk.Label(label_frame,text="Code")
+label_code.grid(row=1,column=0,padx=10)
+entry_code = ttk.Entry(label_frame,width=20)
+entry_code.grid(row=1,column=1,pady=10)
+
+# Job Name
+label_jobname = ttk.Label(label_frame,text="Job Name")
+label_jobname.grid(row=1,column=2,padx=10)
+entry_jobname = ttk.Entry(label_frame,width=20)
+entry_jobname.grid(row=1,column=3,pady=10)
+
+# Address
+label_add = ttk.Label(label_frame,text="Add.")
+label_add.grid(row=1,column=4,padx=10)
+entry_add = ttk.Entry(label_frame,width=20)
+entry_add.grid(row=1,column=5,pady=10)
+
+# Country
+label_cntry = ttk.Label(label_frame,text="Country")
+label_cntry.grid(row=1,column=6,padx=8)
+entry_cntry = ttk.Entry(label_frame,width=15)
+entry_cntry.grid(row=1,column=7,pady=10)
 
 root.mainloop()
