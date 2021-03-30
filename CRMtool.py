@@ -26,7 +26,7 @@ file_menu.add_command(label="Quit",command=root.destroy)
 
 # sub_menu = Menu(file_menu,tearoff=False)
 # file_menu.add_cascade(label="Sub_Menu",menu=sub_menu)
-# sub_menu.add_command(label="Quit",command=root.destroy)
+# #sub_menu.add_command(label="Quit",command=root.destroy)
 
 
 tree_scroll = Scrollbar(tree_frame)
